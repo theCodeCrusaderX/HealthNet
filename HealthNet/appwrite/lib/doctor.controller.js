@@ -11,6 +11,7 @@ const databases = new Databases(client);
 const DATABASE_ID = '6712857300019ae9100d'; 
 const DOCTOR_COLLECTION_ID = '67133be0003d2fc2569f'; 
 
+//auth
 // Function to create a new doctor
 export async function createDoctor(doctorData) {
   const { fName, lName, email, experience,  specialist, institute_name, phoneno, address, avatar } = doctorData;

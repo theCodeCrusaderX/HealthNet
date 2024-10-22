@@ -1,11 +1,8 @@
 import React from 'react'
-import UserLogin from './components/userLogin'
-
+import { Outlet } from 'react-router-dom'
 function App() {
   return (
-    <div>
-      <UserLogin />
-    </div>
+    <Outlet/>
   )
 }
 

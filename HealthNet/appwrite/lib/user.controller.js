@@ -11,6 +11,7 @@ const databases = new Databases(client);
 const DATABASE_ID = '6712857300019ae9100d';
 const COLLECTION_ID = '67133be9002575640566';
 
+//auth
 export async function registerUser(userName, email, password) {
   try {
     const user = await account.create(ID.unique(), email, password, userName);
