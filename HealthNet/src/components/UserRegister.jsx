@@ -3,26 +3,33 @@ import Input from './Input.jsx'
 import Button from './Button.jsx'
 import { useForm } from "react-hook-form";
 import { RegisterUser } from '../../appwrite/lib/user.controller.js';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 function UserRegister() {
     const [error, setError] = useState("");
     // const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
  // const navigate = useNavigate();
 
-    const create = async(data) => {
-        console.log(data);
-  setError("");
-        try {
-          const UserData = await RegisterUser(data);
-          console.log(UserData);
-          // if user regsiter navigate to login page
-          
-          
-          
-        } catch (error) {
-          setError(error.message);
-        }
+  
+ const create = async (data) => {
+    console.log(data); // To verify the values
+  
+    setError("");
+    try {
+      // Destructure the form data to get userName, email, and password
+      const { userName, email, password } = data;
+      
+      // Pass individual parameters to RegisterUser
+      const userData = await RegisterUser(userName, email, password);
+      console.log(userData);
+  
+      // if user registration is successful, navigate to login or home page
+    } catch (error) {
+      setError(error.message);
     }
+  };
+  
 
 
   return (

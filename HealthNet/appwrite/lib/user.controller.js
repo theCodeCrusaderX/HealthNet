@@ -18,12 +18,12 @@ export async function RegisterUser(userName, email, password) {
     const userDocument = await databases.createDocument(
       DATABASE_ID,
       COLLECTION_ID,
-      ID.unique(), 
+      ID.unique(),
       {
         userId: user.$id,
         userName: userName,
         email: email,
-        password: password, 
+        password: password,
       }
     );
 
