@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../../appwrite/lib/user.controller.js';
+import { loginDoctor } from '../../appwrite/lib/doctor.controller';
 import Input from './Input';
 import Button from './Button'; 
 
 
-function Userlogin() {
+function Doctorlogin() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ function Userlogin() {
     try {
       setError(null);
       const { email, password } = data;
-       const userData = await loginUser( email, password);
+       const docData = await loginDoctor( email, password);
       // Logic for logging in the user
     } catch (err) {
       setError(err.message);
@@ -24,9 +24,9 @@ function Userlogin() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-blue-50">
       <div className="w-full max-w-md p-8 mx-auto bg-white border border-blue-100 shadow-md rounded-xl">
-        <h2 className="text-3xl font-bold text-center text-blue-800"> Login as a user</h2>
+        <h2 className="text-3xl font-bold text-center text-blue-800"> doctor login</h2>
         <p className="mt-2 text-base text-center text-gray-500">
-          New patient?&nbsp;
+          New doctor?&nbsp;
           <Link
             to="/signup"
             className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-800 hover:underline"
@@ -84,4 +84,4 @@ function Userlogin() {
   );
 }
 
-export default Userlogin;
+export default Doctorlogin;
