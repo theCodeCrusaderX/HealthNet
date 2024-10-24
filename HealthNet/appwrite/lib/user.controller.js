@@ -12,18 +12,18 @@ const DATABASE_ID = '6712857300019ae9100d';
 const COLLECTION_ID = '67133be9002575640566';
 
 //auth
-export async function registerUser(userName, email, password) {
+export async function RegisterUser(userName, email, password) {
   try {
     const user = await account.create(ID.unique(), email, password, userName);
     const userDocument = await databases.createDocument(
       DATABASE_ID,
       COLLECTION_ID,
-      ID.unique(), 
+      ID.unique(),
       {
         userId: user.$id,
         userName: userName,
         email: email,
-        password: password, 
+        password: password,
       }
     );
 
