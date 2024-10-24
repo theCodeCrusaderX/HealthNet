@@ -1,9 +1,9 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import UserRegister from './components/UserRegister'
+import Userlogin from './components/Userlogin.jsx'
 function App() {
   return (
-    <UserRegister/>
+    <Userlogin/>
   )
 }
 
