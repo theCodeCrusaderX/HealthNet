@@ -15,6 +15,7 @@ const DOCTOR_COLLECTION_ID = '67133be0003d2fc2569f';
 // Function to create a new doctor
 export async function createDoctor(doctorData) {
   const { fName, lName, email, experience,  specialist, institute_name, phoneno, address, avatar } = doctorData;
+  const DOC = await account.create(ID.unique(), fName, lName, email, experience,  specialist, institute_name, phoneno, address, avatar );
 
   try {
     const doctorDocument = await databases.createDocument(
