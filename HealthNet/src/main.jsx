@@ -11,14 +11,19 @@ import {
 } from "react-router-dom";
 
 import DoctorRegister from './components/DoctorRegister'
+import DoctorLogin from './components/DoctorLogin.jsx'
+import UserRegister from './components/UserRegister.jsx'
+import UserLogin from './components/Userlogin.jsx'
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       {/* <Route path="" element={<Home />} /> */}
-      <Route path="/register" element={<DoctorRegister />} />
-      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/doc-register" element={<DoctorRegister />} />
+      <Route path="/doc-login" element={<DoctorLogin />} />
+      <Route path="/user-register" element={<UserRegister />} />
+      <Route path="/user-login" element={<UserLogin />} />
     </Route>
   )
 );

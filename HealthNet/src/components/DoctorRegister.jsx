@@ -14,17 +14,11 @@ function DoctorRegister() {
   const { register, handleSubmit } = useForm();
 
   const create = async (data) => {
-    console.log(data);
+    const {fName, lName, email, experience,  specialist, instituteName, phoneNo, address, avatar,password} = data
     setError("");
     try {
-      const docData = await createDoctor(data);
-      console.log(docData);
+      await createDoctor(fName, lName, email, experience,  specialist, instituteName, phoneNo, address, avatar,password);
       
-      // if (docData) {
-      //   const docData = await getCurrentUser();
-      //   // if (docData) dispatch(login(docData));
-      //   navigate("/");
-      // }
     } catch (error) {
       setError(error.message);
     }
