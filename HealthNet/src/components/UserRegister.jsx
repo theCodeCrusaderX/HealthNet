@@ -30,7 +30,7 @@ function UserRegister() {
         <p className="text-center text-lg text-gray-600 mb-8">
           Already have an account?&nbsp;
           <Link
-            to="/login"
+            to="/user-login"
             className="font-semibold text-blue-500 transition duration-200 hover:underline"
           >
             Log In

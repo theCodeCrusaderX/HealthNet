@@ -14,10 +14,17 @@ const DOCTOR_COLLECTION_ID = '67133be0003d2fc2569f';
 //auth
 // Function to create a new doctor
 export async function createDoctor(doctorData) {
-  const { fName, lName, email, experience,  specialist, institute_name, phoneno, address, avatar } = doctorData;
+  const { fName, lName, email, experience,  specialist, instituteName, phoneNo, address, avatar,password } = doctorData;
+
+  //give a valid log
+  console.log(email);
+  
 
   try {
-    const doctor = await account.create(ID.unique(), email,password,`${fName} ${lName}`)
+    const doctor = await account.create(ID.unique(), email,password,fName)
+
+    console.log("doc created in backend",doctor);
+    
 
     const doctorDocument = await databases.createDocument(
       DATABASE_ID,
@@ -37,6 +44,10 @@ export async function createDoctor(doctorData) {
         password
       }
     );
+
+    //not consoling the document
+    console.log("doc document",doctorDocument);
+    
 
     return {
       success: true,

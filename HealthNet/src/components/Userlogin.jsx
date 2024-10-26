@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../appwrite/lib/user.controller.js';
 import Input from './Input';
 import Button from './Button'; 
+import {useDispatch} from "react-redux"
 
 
 function Userlogin() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     try {
       setError(null);
       const { email, password } = data;
        const userData = await loginUser( email, password);
+       if (userData) dispatch(login(data));
+      navigate("/");
+
       // Logic for logging in the user
     } catch (err) {
       setError(err.message);

@@ -15,9 +15,29 @@ function DoctorRegister() {
 
   const create = async (data) => {
     const {fName, lName, email, experience,  specialist, instituteName, phoneNo, address, avatar,password} = data
+
+    // give a valid log 
+    console.log(experience);
+    console.log("\n",data);
+    
+    
     setError("");
     try {
-      await createDoctor(fName, lName, email, experience,  specialist, instituteName, phoneNo, address, avatar,password);
+      const response = await createDoctor({
+        fName,
+        lName,
+        email,
+        experience,
+        specialist,
+        instituteName,
+        phoneNo,
+        address,
+        avatar,
+        password,
+      });      
+
+      console.log("response :: ",response);
+      
       
     } catch (error) {
       setError(error.message);

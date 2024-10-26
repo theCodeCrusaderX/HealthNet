@@ -10,7 +10,7 @@ const DATABASE_ID = '6712857300019ae9100d';
 const COLLECTION_ID = '67134080000d5ccbb9c5';
 
 
-export async function CreatePost(owner, image, content) {
+export async function CreatePost(owner, image, content, tittle) {
   try {
     const postDocument = await databases.createDocument(
       DATABASE_ID,
@@ -20,6 +20,7 @@ export async function CreatePost(owner, image, content) {
         owner: owner,
         image: image,
         content: content,
+        tittle
       }
     );
 
