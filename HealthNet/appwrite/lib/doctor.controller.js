@@ -65,7 +65,7 @@ export async function createDoctor(doctorData) {
 // Function to log in as a doctor
 export async function loginDoctor(email, password) {
   try {
-    const session = await account.createSession(email, password);
+    const session = await account.createEmailPasswordSession(email, password);
     return {
       success: true,
       message: "Doctor logged in successfully.",

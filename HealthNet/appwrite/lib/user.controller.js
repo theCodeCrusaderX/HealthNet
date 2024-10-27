@@ -43,7 +43,7 @@ export async function RegisterUser(userName, email, password) {
 
 export async function loginUser(email, password) {
   try {
-    const session = await account.createSession(email, password);
+    const session = await account.createEmailPasswordSession(email, password);
     return {
       success: true,
       message: "User logged in successfully.",
