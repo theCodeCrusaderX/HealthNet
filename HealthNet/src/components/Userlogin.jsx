@@ -5,6 +5,7 @@ import { loginUser } from '../../appwrite/lib/user.controller.js';
 import Input from './Input';
 import Button from './Button'; 
 import {useDispatch} from "react-redux"
+import {login} from  "../store/authSlice.js"
 
 
 function Userlogin() {
@@ -20,6 +21,7 @@ function Userlogin() {
        const userData = await loginUser( email, password);
        if (userData) dispatch(login(data));
       navigate("/");
+      console.log(userData)
 
       // Logic for logging in the user
     } catch (err) {
